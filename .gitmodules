@@ -1,0 +1,6 @@
+[submodule "react-native-svg-icons-front"]
+	path = react-native-svg-icons-front
+	url = git@github.com:x-Milosz/react-native-svg-icons-front.git
+[submodule "react-native-svg-icons-server"]
+	path = react-native-svg-icons-server
+	url = git@github.com:x-Milosz/react-native-svg-icons-server.git
