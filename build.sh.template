@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Build react-native-svg-icons-front
+cd react-native-svg-icons-front
+yarn install
+docker build -t react-native-svg-icons-front:1.0.0 .
+cd ..
+# Build react-native-svg-icons-server
+cd react-native-svg-icons-server
+docker build \
+  --build-arg DATABASE_HOST=<DATABASE_HOST> \
+  --build-arg DATABASE_PASSWORD=<DATABASE_PASSWORD> \
+  --build-arg DATABASE_USERNAME=<DATABASE_USERNAME> \
+  -t react-native-svg-icons-server:1.0.0 \
+  .
+cd ..
+
+

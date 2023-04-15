@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  react-native-svg-icons-front:
+    image: react-native-svg-icons-front:1.0.0
+    networks:
+      - rnsiNet
+    ports:
+      - "3000:3000" 
+  react-native-svg-icons-server:
+    image: react-native-svg-icons-server:1.0.0
+    networks:
+      - rnsiNet
+    ports:
+      - "3001:3001"
+    depends_on:
+      - rnsi-mariadb
+  rnsi-mariadb:
+    image: mariadb:latest
+    networks:
+      - rnsiNet
+    environment:
+      MYSQL_ROOT_PASSWORD: <MYSQL_ROOT_PASSWORD>
+      MYSQL_DATABASE: <MYSQL_DATABASE>
+      MYSQL_USER: <MYSQL_USER>
+      MYSQL_PASSWORD: <MYSQL_PASSWORD>
+networks:
+   rnsiNet:
+     name: rnsiNet
+     driver: bridge
+
